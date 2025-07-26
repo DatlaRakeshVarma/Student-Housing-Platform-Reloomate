@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=mongodb://mongo:27017/reloomate
+      - JWT_SECRET=your-super-secret-production-jwt-key
+      - JWT_EXPIRE=7d
+      - FRONTEND_URL=http://localhost:3000
+    depends_on:
+      - mongo
+    restart: unless-stopped
+    networks:
+      - reloomate-network
+
+  mongo:
+    image: mongo:5
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    restart: unless-stopped
+    networks:
+      - reloomate-network
+    environment:
+      - MONGO_INITDB_DATABASE=reloomate
+
+volumes:
+  mongo_data:
+
+networks:
+  reloomate-network:
+    driver: bridge
