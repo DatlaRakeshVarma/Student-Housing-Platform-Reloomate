@@ -362,12 +362,4 @@ docker-compose up -d
 
 This project is licensed under the ISC License.
 
-## 👨‍💻 Author
-
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
-
----
-
 **Note**: This is a backend assessment project for RelooMate. The API is designed to integrate seamlessly with React Native applications and follows RESTful principles with proper authentication and error handling.
