@@ -57,6 +57,11 @@ app.get('/health', (req, res) => {
   });
 });
 
+// Root endpoint
+app.get('/', (req, res) => {
+  res.json({ success: true, message: 'Welcome to the RelooMate API' });
+});
+
 // API routes
 app.use('/api', authRoutes);
 app.use('/api', userRoutes);
